@@ -54,7 +54,7 @@ public class Key : MonoBehaviour
         
     }
 
-    public char getdata()
+    public char GetData()
     {
         return data;
     }

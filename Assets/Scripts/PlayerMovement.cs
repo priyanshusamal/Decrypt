@@ -29,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
     public bool OnKeyboard = true;
 
     Animator anim;
+    
     [Header("Post-Processing")]
     public GameObject postProcessing;
     public GameObject spotLights1;
@@ -37,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject SFXPosition;
 
     [Header("Raycast")]
+    [SerializeField]private WordManager wordManager;
     public float buffer = 1f;
     private void Awake()
     {
@@ -92,7 +94,8 @@ public class PlayerMovement : MonoBehaviour
                 Debug.Log("Hello world!");
                 if(hit.transform.gameObject.GetComponent<Key>() != null){
                     hit.transform.gameObject.GetComponent<Key>().Pressed();
-                    Debug.Log(hit.transform.gameObject.GetComponent<Key>().getdata());
+                    wordManager.SetInput(hit.transform.gameObject.GetComponent<Key>().GetData());
+                    Debug.Log(hit.transform.gameObject.GetComponent<Key>().GetData());
                 }
                 // hit.transform.gameObject.GetComponent<Key>().Pressed();
                 // hit.transform.gameObject.GetComponent<Key>().pressable=false;
